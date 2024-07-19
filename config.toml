@@ -1,0 +1,21 @@
+[flange_1]
+a = 8.0
+b = 6.0
+t = 0.04
+E = 10e6
+Fcy = 45e3
+n = 20.0
+Kc = 3.6
+Fc_cr_initial = 10000
+loading = "compression"
+
+[flange_2]
+a = 12
+b = 1.75
+t = 0.1
+E = 10e6
+Fcy = 45e3
+n = 20.0
+Kc = 0.5
+Fc_cr_initial = 10000
+loading = "compression"
