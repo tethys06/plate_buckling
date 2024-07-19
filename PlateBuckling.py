@@ -8,9 +8,6 @@ with p.open('rb') as f:
     config = tomllib.load(f)
 
 
-@dataclass
-class Components:
-    flange_1: dict
 
 @dataclass
 class Inputs:
@@ -25,6 +22,8 @@ class Inputs:
     loading: str
 
     def __post_init__(self):
+
+        self.loading = self.loading.lower()
 
         for variable in self.__dataclass_fields__.keys():
             if not isinstance(self.__dict__[variable],self.__dataclass_fields__[variable].type):
@@ -73,3 +72,5 @@ class Inputs:
 
         return root
     
+
+
