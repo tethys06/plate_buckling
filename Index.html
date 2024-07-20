@@ -54,17 +54,23 @@
             </div>
 
             <div>
-                <label for = "loading">loading:</label><br>
-                <input type = "text" id = "loading" name = "loading"><br>
+                <label for = "loading">Loading:</label><br>
+                <select id = "loading" name = "loading">
+                    <option value="compression">compression</option>
+                    <option value="shear">shear</option>
+                    <option value="bending">bending</option>
+                </select><br>
             </div>
 
             <div>
-                <input type="submit" value="Save Data"><br>
+                <br>
+                <input type="submit" value="Calculate"><br>
             </div>
 
             <div>
-                <h2>Buckling Allowable</h2>
-                <textarea id="buckling-allow"></textarea>
+                <h2>Results</h2>
+                <label for = "buckling-allow">Buckling Allowable:</label>
+                <output id="buckling-allow"></output>
 
             </div>
             
