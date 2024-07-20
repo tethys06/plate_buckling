@@ -16,6 +16,12 @@ async def load_form():
         data = fh.read()
     return Response(content=data, media_type="text/html")
 
+@app.get("/css/style.css")
+async def load_css():
+    with open('css/style.css') as fh:
+        data = fh.read()
+    return Response(content=data, media_type="text/css")
+
 
 @app.post("/inputs/")
 async def create_item(item: Item):
