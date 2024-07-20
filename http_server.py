@@ -1,18 +1,34 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer, SimpleHTTPRequestHandler
-import socketserver
-import time
+from typing import Union
+from fastapi import FastAPI, Response
+from pydantic import BaseModel
+from PlateBuckling import Inputs
+import json
 
-hostname = 'localhost'
-serverport = 8080
+class Item(BaseModel):
+    data: dict
 
-class RequestHandler(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        if self.path == '/':
-            self.path = 'Input.html'
-        return SimpleHTTPRequestHandler.do_GET(self)
-    
-    
-handler_object = RequestHandler
 
-my_server = socketserver.TCPServer(("", serverport), handler_object)
-my_server.serve_forever()
+app = FastAPI()
+
+@app.get("/")
+async def load_form():
+    with open('Index.html') as fh:
+        data = fh.read()
+    return Response(content=data, media_type="text/html")
+
+
+@app.post("/inputs/")
+async def create_item(item: Item):
+    data = Inputs(**item.data)
+    result = data.CompressionBucklingAllowable()
+
+    return json.dumps({'Fccr':result})
+
+'''
+Need two endpoints
+1 to serve html file
+2 to take the config file
+
+return a status code, then the result.
+
+'''

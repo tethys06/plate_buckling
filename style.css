@@ -1,0 +1,544 @@
+html {
+    font-family: sans-serif;
+    background: rgb(84, 84, 84);
+    padding: 2rem;
+  }
+  
+  footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #3A424A;
+    /* background-color: white; */
+  }
+  
+  body {
+    /* max-width: 960px; */
+    margin: 4 auto;
+    background: #CBCDD0;
+    /* background: white ; */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+    color: #057442;
+    margin: 1rem 0rem;
+  }
+  
+  a {
+    /* color: #377ba8; */
+      color: whitesmoke;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #3A424A;
+  }
+  
+  nav {
+    background: #3A424A;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+  
+  nav h1 {
+    flex: auto;
+    color: whitesmoke;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  nav h1 a {
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  nav ul  {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li a, nav ul li span, header .action {
+    display: block;
+    padding: 0.5rem;
+  }
+  
+  .content {
+    padding: 0 1rem 1rem;
+  }
+  
+  .content header {
+    border-bottom: 3px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .content h1{
+    text-align: left;
+  }
+  
+  .content header > div{
+    display: flex;
+    justify-content: right;
+  }
+  
+  .content h3{
+    text-align: left;
+    align-self: center;
+    padding-left: 3px;
+  }
+  
+  
+  .flash {
+    margin: 1em 0;
+    padding: 1em;
+    background: #cae6f6;
+    border: 1px solid #377ba8;
+  }
+  
+  .content:last-child {
+    margin-bottom: 0;
+  }
+  
+   label.bold_label {
+    font-weight: bold;
+    margin-bottom: 0.25em;
+  }
+  
+  .content input, .content textarea, .content select {
+    margin-bottom: 0.5em;
+  }
+  
+  .content textarea {
+    min-height: 12em;
+    resize: vertical;
+  }
+  
+  
+  /* A two-column address input box */
+  .input_box div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    margin: 0.25em 0;
+  }
+  
+  .input_box select {
+    padding: 7px;
+    border-radius:5px;
+    border: 1px solid;
+  }
+  
+  .input_box {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows: 0.9fr 0.1fr; */
+    /* border-width: 1px; */
+    /* border-style: solid; */
+    /* border-color: black; */
+    /* border-radius: 2.5%; */
+  }
+  
+  .input_box .one {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  /* --------------------------------- */
+  
+  /* A two-column address input box */
+  .customer_search_box div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    margin: 0.25em 0;
+  }
+  
+  .customer_search_box {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 2.5%;
+  }
+  
+  /* --------------------------------- */
+  
+  .two-column-wrapper {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 0.25fr 0.75fr;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    column-gap: 10px;
+  }
+  
+  
+  
+  .wrapper {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 0.5fr  0.5fr 0.5fr;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    column-gap: 10px;
+  }
+  
+  input.danger {
+    color: #cc2f2e;
+  }
+  
+  input[type=number], input[type=text] {
+    padding: 3px;
+    border-radius:5px;
+    border: 1px solid;
+  }
+  
+  /* input:invalid {
+    color: #740A05;
+  } */
+  
+  input[type=submit] {
+    font-size: 1.2em;
+    align-self: center;
+    min-width: 10em;
+    background-color: #057442;
+    color: white;
+    border-style: solid;
+    border-radius:50px;
+    min-height: 2.5em;
+    box-shadow:0 0 10px 5px rgba(0,0,0,0.1);
+  }
+  
+  input[type=submit]:hover {
+    background-color: seagreen;
+  }
+  
+  
+  /* special Li class for Completed items */
+  
+  li.complete {
+    /* list-style-type: circle; */
+    list-style-type: "\2611"; 
+    padding-left: 0.5em;
+    color: black;
+  }
+  
+  
+    /* special Li class for incomplete items */
+  
+    li.incomplete {
+      /* list-style-type: circle; */
+      list-style-type: "\2610"; 
+      padding-left: 0.5em;
+      color: black;     
+    }
+  
+  
+  /* Tables */
+  table.standard-table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200,200,200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    align-self: center;
+  }
+  
+  td.standard-table, th.standard-table {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+  }
+  
+  th.standard-table {
+    background-color: rgb(84,84,84);
+    color:whitesmoke;
+    position: sticky;
+    top: 0;
+  }
+  
+  td.standard-table {
+    text-align: center;
+  }
+  
+  tr.standard-table:nth-child(even) td {
+    background-color: rgb(250,250,250);
+  }
+  
+  tr.standard-table:nth-child(odd) td {
+    background-color: rgb(245,245,245);
+  }
+  
+  
+  table.minimal-table.small {
+    font-size: 0.8rem;
+  }
+  
+  table.minimal-table.large thead {
+    font-size: 1.2rem;
+  }
+  
+  table.minimal-table.large tbody {
+    font-size: 0.9rem;
+    align-self: center;
+  }
+  
+  table.minimal-table.large{
+    border-spacing: 5px;
+  }
+  
+  table.minimal-table {
+    letter-spacing: 1px;
+  }
+  
+  .minimal-table th {
+    background-color: rgb(84,84,84);
+    color:whitesmoke;
+    top: 0;
+    padding-inline-start: 1.5em;
+    padding-inline-end: 1.5em;
+    position:sticky;
+  }
+  
+  .minimal-table td {
+    text-align: left;
+    padding-right: 2em;
+  }
+  
+  .minimal-table tr:hover{
+    background-color: #4fafef96;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+  
+  .minimal-table td:hover{
+    background-color: #4fafef96;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+  
+  tr.selected {
+    background-color: #4fafef96;
+    border-radius: 10%;
+  }
+  
+  span.center-row {
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+  }
+  
+  [id=print-button-row] {
+    padding-top: 25px;
+  }
+  
+  
+  div.center-column {
+    margin-inline: auto;
+  }
+  
+  
+  span.left-justify {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    column-gap: 1rem;
+  }
+  
+  
+  button.remove_item_button {
+    display: inline-block;
+    padding: 0.25rem;
+    text-decoration: none;
+    text-align: center;
+    color: whitesmoke;
+    background-color: #740A05;
+    border-radius: 0.5em;
+    font-weight: bold;
+  }
+  button.remove_item_button:active {
+    background-color: #903B37;
+    }
+  
+
+  button.add_item_button {
+    display: inline-block;
+    padding: 0.25rem;
+    text-decoration: none;
+    text-align: center;
+    color: whitesmoke;
+    background-color: #057442;
+    border-radius: 0.5em;
+    font-weight: bold;
+  }
+  button.add_item_button:active {
+    background-color: seagreen;
+    }
+
+  
+  button.large {
+    font-size: 16pt;
+    font-weight: bold;
+    padding: 14px 25px;
+  }
+  
+  button.medium {
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 5px 15px;
+  }
+  
+  button.submit {
+    background-color: #057442;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0.4em;
+    justify-content: center;
+  }
+  
+  button.submit:hover, button.submit:active {
+    background-color: seagreen;
+    }
+  
+  
+  a.button:link, a.button:visited {
+  background-color: #057442;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0.3em;
+  font-size: 16pt;
+  font-weight: bold;
+  }
+  
+  a.button:hover, a.button:active {
+  background-color: seagreen;
+  }
+  
+  a.button-blue:link, a.button-blue:visited {
+    background-color: #2E578B; 
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0.3em;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  
+  a.button-blue:hover, a.button-blue:active {
+    background-color: #2E578B;
+  }
+  
+  a.button-orange:link, a.button-orange:visited {
+    background-color: #8B572E; 
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 0.3em;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  
+  a.button-orange:hover, a.button-orange:active {
+    background-color: #8B572E;
+  }
+  
+  
+  /* Horizontal List */
+  ul.hlist > li {
+  display: inline-block;
+  padding: 10px 20px;
+  }
+  
+  ul.hlist {
+  padding-left: 0px;
+  text-align: center;
+  }
+  
+  span.align-left{
+  float:left
+  }
+  
+  span.align-right{
+  float:right
+  }
+  
+  li.padded_li{
+    margin: 10px 0;
+  }
+  
+  
+  /* Mark input boxes that gets an error on validation: */
+  select.invalid {
+    background-color: #b77474;
+  }
+  
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+  
+  /* Make circles that indicate the steps of the form: */
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  /* Mark the active step: */
+  .step.active {
+    opacity: 1;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #04AA6D;
+  }
+  
+  strong {
+  font-size:40px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  }
+
+  .radio_button_like input[type="radio"] {
+    display: none;
+  }
+  
+  .radio_button_like label {
+    display: inline-block;
+    padding: 5px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: #057442;
+    box-shadow:0 0 5px 1px rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0);
+  } 
+  
+  .radio_button_like input[type="radio"]:checked + label {
+    background-color: #057442;
+    color: black;
+  }
+  
+  .content form {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+  }

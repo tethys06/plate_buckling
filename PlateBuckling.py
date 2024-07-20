@@ -11,6 +11,7 @@ with p.open('rb') as f:
 
 @dataclass
 class Inputs:
+    Component: str
     a: float
     b: float
     t: float
@@ -27,7 +28,12 @@ class Inputs:
 
         for variable in self.__dataclass_fields__.keys():
             if not isinstance(self.__dict__[variable],self.__dataclass_fields__[variable].type):
-                if isinstance(self.__dict__[variable], int):
+                if isinstance(self.__dict__[variable], str):
+                    try: 
+                        self.__dict__[variable] = float(self.__dict__[variable])
+                    except:
+                        raise ValueError(f'Invalid value provided for parameter {variable} = {self.__dict__[variable]}. Expecting {self.__dataclass_fields__[variable].type}')
+                elif isinstance(self.__dict__[variable], int):
                     self.__dict__[variable] = float(self.__dict__[variable])
                 else:
                     raise TypeError(f'Invalid datatype provided for parameter {variable} = {self.__dict__[variable]}. Expecting {self.__dataclass_fields__[variable].type}')

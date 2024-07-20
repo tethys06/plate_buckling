@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Plate Buckling</title>
+        <link href="./style.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <h1>Inputs</h1>
+        <form method="post" id="plate_buckling_inputs" class="input_box" onsubmit="sendData(event)">
+            <div>
+                <label for = "Component">Component Name:</label><br>
+                <input type = "text" id = "Component" name = "Component"><br>
+            </div>
+
+            <div>
+                <label for = "Length">Length:</label><br>
+                <input type = "number" id = "a" name = "a" step="0.001" required_min="0"><br>
+            </div>
+
+            <div>
+                <label for = "Width">Width:</label><br>
+                <input type = "number" id = "b" name="b" step="0.001" required_min="0"><br>
+            </div>
+
+            <div>
+                <label for = "Thickness">Thickness:</label><br>
+                <input type = "number" id = "t" name = "t" step="0.001" required_min="0"><br>
+            </div>
+
+            <div>
+                <label for = "Modulus">Modulus:</label><br>
+                <input type = "number" id = "E" name = "E"><br>
+            </div>
+
+            <div>
+                <label for = "Fcy">Material Yield Stress:</label><br>
+                <input type = "number" id = "Fcy" name = "Fcy" step="0.001" required_min="0"><br>
+            </div>
+
+            <div>
+                <label for = "n">Material Shape Parameter:</label><br>
+                <input type = "number" id = "n" name = "n" step="0.001" required_min="0"><br>
+            </div>
+
+            <div>
+                <label for = "Kc">Buckling Coefficient:</label><br>
+                <input type = "number" id = "Kc" name = "Kc" step="0.01" required_min="0"><br>
+            </div>
+
+            <div>
+                <label for = "Fc_cr_initial">Initial Guess of Buckling Stress:</label><br>
+                <input type = "number" id = "Fc_cr_initial" name = "Fc_cr_initial" step="1" required_min="0"><br>
+            </div>
+
+            <div>
+                <label for = "loading">loading:</label><br>
+                <input type = "text" id = "loading" name = "loading"><br>
+            </div>
+
+            <div>
+                <input type="submit" value="Save Data"><br>
+            </div>
+
+            <div>
+                <h2>Buckling Allowable</h2>
+                <textarea id="buckling-allow"></textarea>
+
+            </div>
+            
+        </form>
+        
+
+    </body>
+
+</html>
+
+<script>
+
+async function sendData(event) {
+    event.preventDefault();
+    console.log('sending data')
+
+    let data = new FormData(document.getElementById('plate_buckling_inputs'));
+    const packet = {
+        msg_type:'buckling_data_entry',
+        data:Object.fromEntries(data.entries())
+    };
+    console.log(packet)
+
+
+    const url = "/inputs/";
+
+    const response = await fetch(url,{
+        method:"POST",
+        headers:{
+           "Content-Type":"application/json"
+        },
+        body:JSON.stringify(packet)
+    });
+
+    // check status code, if good then display result. If not, display error code.
+
+    if (response.ok) {
+
+        const data_json = await response.json();
+        var result_data = JSON.parse(data_json);
+        document.getElementById('buckling-allow').value = result_data['Fccr'];
+    } else {
+
+        document.getElementById('buckling-allow').value = response.statusText
+    }
+
+
+    
+
+}
+
+</script>
