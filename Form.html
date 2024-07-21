@@ -16,42 +16,42 @@
 
             <div>
                 <label for = "Length">Length:</label><br>
-                <input type = "number" id = "a" name = "a" step="0.001" required_min="0"><br>
+                <input type = "number" id = "a" name = "a" step="0.001" min="0"><br>
             </div>
 
             <div>
                 <label for = "Width">Width:</label><br>
-                <input type = "number" id = "b" name="b" step="0.001" required_min="0"><br>
+                <input type = "number" id = "b" name="b" step="0.001" min="0"><br>
             </div>
 
             <div>
                 <label for = "Thickness">Thickness:</label><br>
-                <input type = "number" id = "t" name = "t" step="0.001" required_min="0"><br>
+                <input type = "number" id = "t" name = "t" step="0.001" min="0"><br>
             </div>
 
             <div>
                 <label for = "Modulus">Modulus:</label><br>
-                <input type = "number" id = "E" name = "E"><br>
+                <input type = "number" id = "E" name = "E" min="0"><br>
             </div>
 
             <div>
                 <label for = "Fcy">Material Yield Stress:</label><br>
-                <input type = "number" id = "Fcy" name = "Fcy" step="0.001" required_min="0"><br>
+                <input type = "number" id = "Fcy" name = "Fcy" step="0.001" min="0"><br>
             </div>
 
             <div>
                 <label for = "n">Material Shape Parameter:</label><br>
-                <input type = "number" id = "n" name = "n" step="0.001" required_min="0"><br>
+                <input type = "number" id = "n" name = "n" step="0.001" min="0"><br>
             </div>
 
             <div>
                 <label for = "Kc">Buckling Coefficient:</label><br>
-                <input type = "number" id = "Kc" name = "Kc" step="0.01" required_min="0"><br>
+                <input type = "number" id = "Kc" name = "Kc" step="0.01" min="0"><br>
             </div>
 
             <div>
                 <label for = "Fc_cr_initial">Initial Guess of Buckling Stress:</label><br>
-                <input type = "number" id = "Fc_cr_initial" name = "Fc_cr_initial" step="1" required_min="0"><br>
+                <input type = "number" id = "Fc_cr_initial" name = "Fc_cr_initial" step="1" min="0"><br>
             </div>
 
             <div>
@@ -115,7 +115,7 @@ async function sendData(event) {
         document.getElementById('buckling-allow').value = result_data['Fccr'];
     } else {
 
-        document.getElementById('buckling-allow').value = response.statusText
+        document.getElementById('buckling-allow').value = response.statusText;
     }
 
 

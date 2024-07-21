@@ -3,6 +3,7 @@ from fastapi import FastAPI, Response
 from pydantic import BaseModel
 from PlateBuckling import Inputs
 import json
+import numpy as np
 
 class Item(BaseModel):
     data: dict
@@ -12,7 +13,7 @@ app = FastAPI()
 
 @app.get("/")
 async def load_form():
-    with open('Index.html') as fh:
+    with open('Form.html') as fh:
         data = fh.read()
     return Response(content=data, media_type="text/html")
 
@@ -28,7 +29,7 @@ async def create_item(item: Item):
     data = Inputs(**item.data)
     result = data.CompressionBucklingAllowable()
 
-    return json.dumps({'Fccr':result})
+    return json.dumps({'Fccr':f'{result:.0f}'})
 
 '''
 Need two endpoints
